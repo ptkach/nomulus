@@ -24,6 +24,7 @@ import google.registry.model.console.UserDao;
 import java.util.Optional;
 import javax.annotation.Nullable;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -50,7 +51,7 @@ public class IapHeaderAuthenticationMechanism implements AuthenticationMechanism
   private final TokenVerifier tokenVerifier;
 
   @Inject
-  public IapHeaderAuthenticationMechanism(TokenVerifier tokenVerifier) {
+  public IapHeaderAuthenticationMechanism(@Named("iap") TokenVerifier tokenVerifier) {
     this.tokenVerifier = tokenVerifier;
   }
 
