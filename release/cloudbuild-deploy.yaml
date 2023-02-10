@@ -28,6 +28,24 @@ steps:
     set -e
     gcloud secrets versions access latest \
       --secret nomulus-tool-cloudbuild-credential > tool-credential.json
+# Create/Update cloud scheduler jobs based on a cloud-scheduler-tasks.xml
+- name: 'gcr.io/$PROJECT_ID/builder:latest'
+  entrypoint: /bin/bash
+  args:
+  - -c
+  - |
+    set -e
+    gcloud auth activate-service-account --key-file=tool-credential.json
+    if [ ${_ENV} == production ]; then
+      project_id="domain-registry"
+    else
+      project_id="domain-registry-${_ENV}"
+    fi
+    gsutil cp gs://$PROJECT_ID-deploy/${TAG_NAME}/${_ENV}.tar .
+    tar -xvf ${_ENV}.tar
+    gsutil cp gs://$PROJECT_ID-deploy/scripts/cloudSchedulerHelper.sh .
+    chmod +x cloudSchedulerHelper.sh
+    ./cloudSchedulerHelper.sh default/WEB-INF/cloud-scheduler-jobs.xml $project_id
 # Deploy the GAE config files.
 # First authorize the gcloud tool to use the credential json file, then
 # download and unzip the tarball that contains the relevant config files
