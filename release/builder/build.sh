@@ -32,8 +32,10 @@ python3 -m pip install dataclasses
 # Install curl.
 apt-get install curl -y
 # Install Node
-curl -sL https://deb.nodesource.com/setup_current.x | bash -
-apt-get install -y nodejs
+apt-get install npm -y
+npm cache clean -f
+npm install -g n
+n stable
 # Install gcloud
 # Cribbed from https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu
 apt-get install lsb-release -y
