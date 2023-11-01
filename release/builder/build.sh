@@ -24,16 +24,22 @@ apt-get install gnupg2 -y
 # Install Java
 apt-get install openjdk-11-jdk-headless -y
 # Install Python
-apt-get install python -y
+echo ">>>"
+apt-get install python3 -y
+echo ">>> 2"
 # As of March 2021 python3 is at v3.6. Get pip then install dataclasses
 # (introduced in 3.7) for nom_build
 apt-get install python3-pip -y
+echo ">>> 3"
 python3 -m pip install dataclasses
+echo ">>> 4"
 # Install curl.
 apt-get install curl -y
 # Install Node
-curl -sL https://deb.nodesource.com/setup_current.x | bash -
-apt-get install -y nodejs
+apt-get install npm -y
+npm cache clean -f
+npm install -g n
+n 16.19.0
 # Install gcloud
 # Cribbed from https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu
 apt-get install lsb-release -y
