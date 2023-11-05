@@ -35,7 +35,7 @@ apt-get install curl -y
 apt-get install npm -y
 npm cache clean -f
 npm install -g n
-n 16.19.0
+for i in {1..5}; do n 16.19.0 && break || sleep 15; done
 # Install gcloud
 # Cribbed from https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu
 apt-get install lsb-release -y
