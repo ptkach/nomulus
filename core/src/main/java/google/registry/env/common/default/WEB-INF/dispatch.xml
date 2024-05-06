@@ -17,4 +17,8 @@
     <url>*/check</url>
     <module>pubapi</module>
   </dispatch>
+  <dispatch>
+    <url>*/console/*</url>
+    <module>console</module>
+  </dispatch>
 </dispatch-entries>

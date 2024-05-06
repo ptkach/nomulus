@@ -33,9 +33,9 @@ export class BackendService {
     error: HttpErrorResponse,
     mockData?: Type
   ): Observable<Type> {
-    // This is a temporary redirect to the old console untill the new console
+    // This is a temporary redirect to the old console until the new console
     // is fully released and enabled
-    if (error.url && window.location.href.indexOf(error.url) < 0) {
+    if (error.url && new URL(error.url).pathname === '/registrar') {
       window.location.href = error.url;
     }
     if (error.error instanceof Error) {
