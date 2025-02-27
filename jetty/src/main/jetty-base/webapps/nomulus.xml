@@ -4,6 +4,20 @@
 <Configure id="wac" class="org.eclipse.jetty.ee10.webapp.WebAppContext">
   <Set name="contextPath">/</Set>
   <Set name="war">./webapps/nomulus.war</Set>
+  <Set name="handler">
+    <New class="org.eclipse.jetty.server.handler.gzip.GzipHandler">
+      <Set name="minGzipSize">2048</Set>
+      <Set name="includedMimeTypes">
+        <Array type="String">
+          <Item>text/html</Item>
+          <Item>text/css</Item>
+          <Item>text/javascript</Item>
+          <Item>application/javascript</Item>
+          <Item>application/json</Item>
+        </Array>
+      </Set>
+    </New>
+  </Set>
   <Call class="java.lang.System" name="setProperty">
     <Arg>google.registry.jetty</Arg>
     <Arg>true</Arg>
