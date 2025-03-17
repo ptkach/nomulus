@@ -1,4 +1,4 @@
-<form (ngSubmit)="saveEdit($event)" #form>
+<form (ngSubmit)="saveEdit($event)" #form ngNativeValidate>
   <p *ngIf="isNew()">
     <mat-form-field appearance="outline">
       <mat-label
@@ -31,6 +31,26 @@
         <mat-option value="PRIMARY_CONTACT">Editor</mat-option>
         <mat-option value="ACCOUNT_MANAGER">Viewer</mat-option>
       </mat-select>
+    </mat-form-field>
+  </p>
+  <p *ngIf="user().role === 'PRIMARY_CONTACT'">
+    <mat-form-field appearance="outline">
+      <mat-label
+        >Registry Lock email:
+        <mat-icon
+          matTooltip="Registry lock email address will be used to authorize domain registry lock requests"
+          >help_outline</mat-icon
+        ></mat-label
+      >
+      <input
+        matInput
+        type="email"
+        name="registryLockEmailAddress"
+        [(ngModel)]="user().registryLockEmailAddress"
+        [ngModelOptions]="{ standalone: true }"
+        [required]="user().role === 'PRIMARY_CONTACT'"
+        email
+      />
     </mat-form-field>
   </p>
   <button

@@ -54,7 +54,7 @@ public class UserBase extends UpdateAutoTimestampEntity implements Buildable {
   @Transient @Expose String emailAddress;
 
   /** Optional external email address to use for registry lock confirmation emails. */
-  @Column String registryLockEmailAddress;
+  @Expose @Column String registryLockEmailAddress;
 
   /** Roles (which grant permissions) associated with this user. */
   @Expose

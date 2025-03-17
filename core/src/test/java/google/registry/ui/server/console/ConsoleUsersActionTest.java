@@ -167,7 +167,7 @@ class ConsoleUsersActionTest {
         createAction(
             Optional.of(ConsoleApiParamsUtils.createFake(authResult)),
             Optional.of("POST"),
-            Optional.of(new UserData("a@d", RegistrarRole.ACCOUNT_MANAGER.toString(), null)));
+            Optional.of(new UserData("a@d", RegistrarRole.ACCOUNT_MANAGER.toString(), null, null)));
     action.cloudTasksUtils = cloudTasksHelper.getTestCloudTasksUtils();
     when(directory.users()).thenReturn(users);
     when(users.insert(any(com.google.api.services.directory.model.User.class))).thenReturn(insert);
@@ -185,7 +185,7 @@ class ConsoleUsersActionTest {
         createAction(
             Optional.of(ConsoleApiParamsUtils.createFake(authResult)),
             Optional.of("POST"),
-            Optional.of(new UserData("lol", RegistrarRole.ACCOUNT_MANAGER.toString(), null)));
+            Optional.of(new UserData("lol", RegistrarRole.ACCOUNT_MANAGER.toString(), null, null)));
     action.cloudTasksUtils = cloudTasksHelper.getTestCloudTasksUtils();
     when(directory.users()).thenReturn(users);
     when(users.insert(any(com.google.api.services.directory.model.User.class))).thenReturn(insert);
@@ -211,7 +211,7 @@ class ConsoleUsersActionTest {
             Optional.of(ConsoleApiParamsUtils.createFake(authResult)),
             Optional.of("DELETE"),
             Optional.of(
-                new UserData("test3@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null)));
+                new UserData("test3@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null, null)));
     when(directory.users()).thenReturn(users);
     when(users.delete(any(String.class))).thenReturn(delete);
     action.run();
@@ -230,7 +230,7 @@ class ConsoleUsersActionTest {
             Optional.of(ConsoleApiParamsUtils.createFake(authResult)),
             Optional.of("DELETE"),
             Optional.of(
-                new UserData("email-1@email.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null)));
+                new UserData("email-1@email.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null, null)));
     when(directory.users()).thenReturn(users);
     when(users.delete(any(String.class))).thenReturn(delete);
     action.run();
@@ -253,7 +253,7 @@ class ConsoleUsersActionTest {
             Optional.of(ConsoleApiParamsUtils.createFake(authResult)),
             Optional.of("DELETE"),
             Optional.of(
-                new UserData("test2@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null)));
+                new UserData("test2@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null, null)));
     action.cloudTasksUtils = cloudTasksHelper.getTestCloudTasksUtils();
     when(directory.users()).thenReturn(users);
     when(users.delete(any(String.class))).thenReturn(delete);
@@ -293,7 +293,7 @@ class ConsoleUsersActionTest {
             Optional.of(ConsoleApiParamsUtils.createFake(authResult)),
             Optional.of("DELETE"),
             Optional.of(
-                new UserData("test4@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null)));
+                new UserData("test4@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null, null)));
 
     action.cloudTasksUtils = cloudTasksHelper.getTestCloudTasksUtils();
     when(directory.users()).thenReturn(users);
@@ -338,7 +338,7 @@ class ConsoleUsersActionTest {
             Optional.of(ConsoleApiParamsUtils.createFake(authResult)),
             Optional.of("POST"),
             Optional.of(
-                new UserData("test3@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null)));
+                new UserData("test3@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null, null)));
     action.cloudTasksUtils = cloudTasksHelper.getTestCloudTasksUtils();
     when(directory.users()).thenReturn(users);
     when(users.insert(any(com.google.api.services.directory.model.User.class))).thenReturn(insert);
@@ -369,7 +369,7 @@ class ConsoleUsersActionTest {
             Optional.of(ConsoleApiParamsUtils.createFake(authResult)),
             Optional.of("PUT"),
             Optional.of(
-                new UserData("test2@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null)));
+                new UserData("test2@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null, null)));
     action.cloudTasksUtils = cloudTasksHelper.getTestCloudTasksUtils();
     action.run();
     var response = ((FakeResponse) consoleApiParams.response());
@@ -396,7 +396,7 @@ class ConsoleUsersActionTest {
             Optional.of(ConsoleApiParamsUtils.createFake(authResult)),
             Optional.of("PUT"),
             Optional.of(
-                new UserData("test3@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null)));
+                new UserData("test3@test.com", RegistrarRole.ACCOUNT_MANAGER.toString(), null, null)));
     action.run();
     var response = ((FakeResponse) consoleApiParams.response());
     assertThat(response.getStatus()).isEqualTo(SC_FORBIDDEN);

@@ -39,6 +39,7 @@ export class UserEditFormComponent {
     {
       emailAddress: '',
       role: 'ACCOUNT_MANAGER',
+      registryLockEmailAddress: '',
     },
     { transform: (user: User) => structuredClone(user) }
   );

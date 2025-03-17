@@ -80,6 +80,13 @@
             roleToDescription(userDetails().role)
           }}</span>
         </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem">
+          <span class="console-app__list-key">Registry Lock email</span>
+          <span class="console-app__list-value">{{
+            userDetails().registryLockEmailAddress
+          }}</span>
+        </mat-list-item>
         @if (userDetails().password) {
         <mat-divider></mat-divider>
         <mat-list-item role="listitem">

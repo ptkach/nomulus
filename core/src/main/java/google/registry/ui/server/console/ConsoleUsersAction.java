@@ -119,7 +119,8 @@ public class ConsoleUsersAction extends ConsoleApiAction {
                     new UserData(
                         u.getEmailAddress(),
                         u.getUserRoles().getRegistrarRoles().get(registrarId).toString(),
-                        null))
+                        null,
+                        u.getRegistryLockEmailAddress().orElse(null)))
             .collect(Collectors.toList());
 
     consoleApiParams.response().setPayload(consoleApiParams.gson().toJson(users));
@@ -230,7 +231,9 @@ public class ConsoleUsersAction extends ConsoleApiAction {
         .setPayload(
             consoleApiParams
                 .gson()
-                .toJson(new UserData(newEmail, ACCOUNT_MANAGER.toString(), newUser.getPassword())));
+                .toJson(
+                    new UserData(
+                        newEmail, ACCOUNT_MANAGER.toString(), newUser.getPassword(), null)));
   }
 
   private void runUpdateInTransaction() {
@@ -323,5 +326,8 @@ public class ConsoleUsersAction extends ConsoleApiAction {
   }
 
   public record UserData(
-      @Expose String emailAddress, @Expose String role, @Expose @Nullable String password) {}
+      @Expose String emailAddress,
+      @Expose String role,
+      @Expose @Nullable String password,
+      @Expose @Nullable String registryLockEmailAddress) {}
 }
