@@ -20,7 +20,7 @@ import google.registry.flows.ExtensionManager;
 import google.registry.flows.Flow;
 import google.registry.model.eppoutput.Greeting;
 import google.registry.util.Clock;
-import jakarta.inject.Inject;
+import javax.inject.Inject;
 
 /**
  * A flow for an Epp "hello".

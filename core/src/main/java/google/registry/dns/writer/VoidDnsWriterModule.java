@@ -20,7 +20,7 @@ import dagger.Provides;
 import dagger.multibindings.IntoMap;
 import dagger.multibindings.IntoSet;
 import dagger.multibindings.StringKey;
-import jakarta.inject.Named;
+import javax.inject.Named;
 
 /** Dagger module that disables DNS updates. */
 @Module

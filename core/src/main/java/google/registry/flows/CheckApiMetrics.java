@@ -24,7 +24,7 @@ import com.google.monitoring.metrics.MetricRegistryImpl;
 import google.registry.monitoring.whitebox.CheckApiMetric;
 import google.registry.monitoring.whitebox.CheckApiMetric.Availability;
 import google.registry.monitoring.whitebox.CheckApiMetric.Tier;
-import jakarta.inject.Inject;
+import javax.inject.Inject;
 
 /** Helpers for updating domain check metrics. */
 public class CheckApiMetrics {

@@ -72,7 +72,6 @@ import google.registry.rdap.RdapObjectClasses.Vcard;
 import google.registry.rdap.RdapObjectClasses.VcardArray;
 import google.registry.request.RequestServerName;
 import google.registry.util.Clock;
-import jakarta.inject.Inject;
 import jakarta.persistence.Entity;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -85,6 +84,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 import javax.annotation.Nullable;
+import javax.inject.Inject;
 import org.joda.time.DateTime;
 
 /**

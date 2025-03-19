@@ -37,7 +37,7 @@ import io.netty.channel.local.LocalChannel;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpResponseStatus;
-import jakarta.inject.Provider;
+import javax.inject.Provider;
 import org.junit.jupiter.api.Test;
 
 /**

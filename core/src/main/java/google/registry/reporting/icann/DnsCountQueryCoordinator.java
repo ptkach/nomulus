@@ -23,8 +23,8 @@ import dagger.Module;
 import dagger.Provides;
 import google.registry.bigquery.BigqueryConnection;
 import google.registry.config.RegistryConfig.Config;
-import jakarta.inject.Inject;
-import jakarta.inject.Named;
+import javax.inject.Inject;
+import javax.inject.Named;
 import org.joda.time.YearMonth;
 
 /**

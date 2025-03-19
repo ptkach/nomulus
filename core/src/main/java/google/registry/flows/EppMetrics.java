@@ -22,7 +22,7 @@ import com.google.monitoring.metrics.IncrementableMetric;
 import com.google.monitoring.metrics.LabelDescriptor;
 import com.google.monitoring.metrics.MetricRegistryImpl;
 import google.registry.monitoring.whitebox.EppMetric;
-import jakarta.inject.Inject;
+import javax.inject.Inject;
 
 /** EPP Instrumentation. */
 public class EppMetrics {

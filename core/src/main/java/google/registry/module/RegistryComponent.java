@@ -50,8 +50,8 @@ import google.registry.request.auth.AuthModule;
 import google.registry.request.auth.RequestAuthenticator;
 import google.registry.ui.ConsoleDebug.ConsoleConfigModule;
 import google.registry.util.UtilsModule;
-import jakarta.inject.Provider;
-import jakarta.inject.Singleton;
+import javax.inject.Provider;
+import javax.inject.Singleton;
 
 /** Dagger component with instance lifetime. */
 @Singleton

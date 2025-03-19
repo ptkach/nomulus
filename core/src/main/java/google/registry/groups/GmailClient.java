@@ -28,7 +28,6 @@ import google.registry.config.RegistryConfig.Config;
 import google.registry.util.EmailMessage;
 import google.registry.util.EmailMessage.Attachment;
 import google.registry.util.Retrier;
-import jakarta.inject.Inject;
 import jakarta.mail.Address;
 import jakarta.mail.BodyPart;
 import jakarta.mail.Message.RecipientType;
@@ -44,6 +43,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 import java.util.function.Predicate;
+import javax.inject.Inject;
 
 /** Sends {@link EmailMessage EmailMessages} through Google Workspace using {@link Gmail}. */
 public final class GmailClient {

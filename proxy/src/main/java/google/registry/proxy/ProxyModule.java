@@ -54,8 +54,6 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.ssl.OpenSsl;
 import io.netty.handler.ssl.SslProvider;
-import jakarta.inject.Named;
-import jakarta.inject.Singleton;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Arrays;
@@ -70,6 +68,8 @@ import java.util.function.Supplier;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
+import javax.inject.Named;
+import javax.inject.Singleton;
 
 /**
  * A module that provides the port-to-protocol map and other configs that are used to bootstrap the

@@ -16,8 +16,8 @@ package google.registry.module.pubapi;
 
 import google.registry.request.RequestHandler;
 import google.registry.request.auth.RequestAuthenticator;
-import jakarta.inject.Inject;
-import jakarta.inject.Provider;
+import javax.inject.Inject;
+import javax.inject.Provider;
 
 /** Request handler for the frontend module. */
 public class PubApiRequestHandler extends RequestHandler<PubApiRequestComponent> {

@@ -39,7 +39,6 @@ import google.registry.request.Action.GaeService;
 import google.registry.request.Response;
 import google.registry.request.auth.Auth;
 import google.registry.util.Retrier;
-import jakarta.inject.Inject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +46,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import javax.annotation.Nullable;
+import javax.inject.Inject;
 
 /**
  * Action that syncs changes to {@link RegistrarPoc} entities with Google Groups.

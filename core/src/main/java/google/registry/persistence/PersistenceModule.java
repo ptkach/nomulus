@@ -31,7 +31,6 @@ import com.google.common.base.Ascii;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import dagger.BindsOptionalOf;
-import dagger.Lazy;
 import dagger.Module;
 import dagger.Provides;
 import google.registry.config.RegistryConfig.Config;
@@ -46,9 +45,6 @@ import google.registry.privileges.secretmanager.SqlUser.RobotId;
 import google.registry.privileges.secretmanager.SqlUser.RobotUser;
 import google.registry.tools.AuthModule.CloudSqlClientCredential;
 import google.registry.util.Clock;
-import jakarta.inject.Provider;
-import jakarta.inject.Qualifier;
-import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import java.lang.annotation.Documented;
@@ -61,6 +57,9 @@ import java.util.Optional;
 import java.util.Properties;
 import java.util.function.Supplier;
 import javax.annotation.Nullable;
+import javax.inject.Provider;
+import javax.inject.Qualifier;
+import javax.inject.Singleton;
 import org.hibernate.cfg.Environment;
 
 /** Dagger module class for the persistence layer. */
@@ -132,13 +131,7 @@ public abstract class PersistenceModule {
    * <p>The binding for {@link TransactionIsolationLevel} may be {@link Nullable}. As a result, it
    * is a compile-time error to inject {@code Optional<TransactionIsolation>} (See {@link
    * BindsOptionalOf} for more information). User should inject {@code
-   * Optional<Lazy<TransactionIsolation>>} instead.
-   *
-   * <p>Note that newer version of Dagger provides {@code dagger.internal.Provider} instead of
-   * {@code jakarta.inject.Provider}, so we cannot request {@code Optional<Provider<T>>} when there
-   * is an {@code BindsOptionalOf} binding for {@code T} in the graph, as {@code
-   * Optional<dagger.internal.Provider<T>>} is invariant to {@code
-   * Optional<jakarta.inject.Provider<T>>}.
+   * Optional<Provider<TransactionIsolation>>} instead.
    */
   @BindsOptionalOf
   @Config("beamIsolationOverride")
@@ -161,7 +154,8 @@ public abstract class PersistenceModule {
       SqlCredentialStore credentialStore,
       @Config("instanceConnectionNameOverride")
           Optional<Provider<String>> instanceConnectionNameOverride,
-      @Config("beamIsolationOverride") Optional<Lazy<TransactionIsolationLevel>> isolationOverride,
+      @Config("beamIsolationOverride")
+          Optional<Provider<TransactionIsolationLevel>> isolationOverride,
       @PartialCloudSqlConfigs ImmutableMap<String, String> cloudSqlConfigs) {
     HashMap<String, String> overrides = Maps.newHashMap(cloudSqlConfigs);
     // TODO(b/175700623): make sql username configurable from config file.
@@ -182,7 +176,7 @@ public abstract class PersistenceModule {
             instanceConnectionName ->
                 overrides.put(HIKARI_DS_CLOUD_SQL_INSTANCE, instanceConnectionName));
     isolationOverride
-        .map(Lazy::get)
+        .map(Provider::get)
         .ifPresent(isolation -> overrides.put(Environment.ISOLATION, isolation.name()));
     return ImmutableMap.copyOf(overrides);
   }

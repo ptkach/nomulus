@@ -23,7 +23,7 @@ import com.google.common.collect.PeekingIterator;
 import google.registry.monitoring.blackbox.exception.UndeterminedStateException;
 import google.registry.monitoring.blackbox.message.OutboundMessageType;
 import google.registry.monitoring.blackbox.module.WebWhoisModule.WebWhoisProtocol;
-import jakarta.inject.Inject;
+import javax.inject.Inject;
 
 /**
  * {@link Token} subtype designed for WebWhois sequence.

@@ -18,7 +18,7 @@ import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import io.netty.channel.ChannelHandler;
 import io.netty.util.AttributeKey;
-import jakarta.inject.Provider;
+import javax.inject.Provider;
 
 /** {@link AutoValue} class that stores all unchanged variables necessary for type of connection. */
 @AutoValue

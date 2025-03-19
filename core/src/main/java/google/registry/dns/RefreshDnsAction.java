@@ -32,7 +32,7 @@ import google.registry.request.HttpException.NotFoundException;
 import google.registry.request.Parameter;
 import google.registry.request.auth.Auth;
 import google.registry.util.Clock;
-import jakarta.inject.Inject;
+import javax.inject.Inject;
 
 /** Action that manually triggers refresh of DNS information. */
 @Action(

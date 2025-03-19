@@ -36,7 +36,6 @@ import google.registry.bigquery.BigqueryUtils.TableType;
 import google.registry.config.RegistryConfig.Config;
 import google.registry.gcs.GcsUtils;
 import google.registry.reporting.icann.IcannReportingModule.ReportType;
-import jakarta.inject.Inject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,6 +46,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
+import javax.inject.Inject;
 import org.joda.time.YearMonth;
 import org.joda.time.format.DateTimeFormat;
 

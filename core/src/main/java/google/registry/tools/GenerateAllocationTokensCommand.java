@@ -53,8 +53,6 @@ import google.registry.util.CollectionUtils;
 import google.registry.util.DomainNameUtils;
 import google.registry.util.NonFinalForTesting;
 import google.registry.util.StringGenerator;
-import jakarta.inject.Inject;
-import jakarta.inject.Named;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -64,6 +62,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import javax.inject.Inject;
+import javax.inject.Named;
 import org.joda.money.Money;
 import org.joda.time.DateTime;
 

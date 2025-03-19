@@ -48,7 +48,6 @@ import google.registry.batch.CloudTasksUtils;
 import google.registry.model.ImmutableObject;
 import google.registry.util.GoogleCredentialsBundle;
 import google.registry.util.Retrier;
-import jakarta.inject.Singleton;
 import java.io.Serializable;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -69,6 +68,7 @@ import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Nonnull;
+import javax.inject.Singleton;
 import org.joda.time.DateTime;
 
 /**

@@ -34,7 +34,7 @@ import google.registry.model.host.Host;
 import google.registry.model.host.HostCommand.Check;
 import google.registry.model.reporting.IcannReportingTypes.ActivityReportField;
 import google.registry.util.Clock;
-import jakarta.inject.Inject;
+import javax.inject.Inject;
 
 /**
  * An EPP flow that checks whether a host can be provisioned.

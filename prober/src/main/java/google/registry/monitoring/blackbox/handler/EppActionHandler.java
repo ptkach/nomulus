@@ -19,7 +19,7 @@ import google.registry.monitoring.blackbox.exception.UndeterminedStateException;
 import google.registry.monitoring.blackbox.message.EppResponseMessage;
 import google.registry.monitoring.blackbox.message.InboundMessageType;
 import io.netty.channel.ChannelHandlerContext;
-import jakarta.inject.Inject;
+import javax.inject.Inject;
 
 /**
  * Subclass of {@link ActionHandler} that deals with the Epp Sequence

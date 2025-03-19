@@ -18,7 +18,7 @@ import dagger.Component;
 import google.registry.config.RegistryConfig.ConfigModule;
 import google.registry.request.RequestModule;
 import google.registry.util.UtilsModule;
-import jakarta.inject.Singleton;
+import javax.inject.Singleton;
 
 @Singleton
 @Component(
