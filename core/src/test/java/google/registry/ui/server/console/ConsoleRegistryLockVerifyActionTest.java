@@ -34,6 +34,7 @@ import google.registry.persistence.transaction.JpaTestExtensions;
 import google.registry.request.auth.AuthResult;
 import google.registry.testing.CloudTasksHelper;
 import google.registry.testing.ConsoleApiParamsUtils;
+import google.registry.testing.DatabaseHelper;
 import google.registry.testing.DeterministicStringGenerator;
 import google.registry.testing.FakeClock;
 import google.registry.testing.FakeResponse;
@@ -76,6 +77,7 @@ public class ConsoleRegistryLockVerifyActionTest {
                     .build())
             .setRegistryLockPassword("registryLockPassword")
             .build();
+    DatabaseHelper.putInDb(user);
     action = createAction(DEFAULT_CODE);
   }
 

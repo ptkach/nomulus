@@ -102,6 +102,7 @@ public class ConsoleUpdateHistory extends ImmutableObject implements Buildable {
   }
 
   public enum Type {
+    DUM_DOWNLOAD,
     DOMAIN_DELETE,
     DOMAIN_SUSPEND,
     DOMAIN_UNSUSPEND,
@@ -109,10 +110,14 @@ public class ConsoleUpdateHistory extends ImmutableObject implements Buildable {
     REGISTRAR_CREATE,
     REGISTRAR_SECURITY_UPDATE,
     REGISTRAR_UPDATE,
+    REGISTRY_LOCK,
+    REGISTRY_UNLOCK,
     USER_CREATE,
     USER_DELETE,
-    USER_UPDATE
+    USER_UPDATE,
   }
+
+  public static final String DESCRIPTION_SEPARATOR = "|";
 
   public static class Builder extends Buildable.Builder<ConsoleUpdateHistory> {
     public Builder() {}

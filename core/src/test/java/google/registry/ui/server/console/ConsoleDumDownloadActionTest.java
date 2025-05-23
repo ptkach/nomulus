@@ -65,7 +65,7 @@ class ConsoleDumDownloadActionTest {
             .setEmailAddress("email@email.com")
             .setUserRoles(new UserRoles.Builder().setGlobalRole(GlobalRole.FTE).build())
             .build();
-
+    DatabaseHelper.putInDb(user);
     AuthResult authResult = AuthResult.createUser(user);
     ConsoleDumDownloadAction action = createAction(authResult);
     action.run();
